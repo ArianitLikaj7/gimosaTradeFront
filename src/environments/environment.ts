@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  apiUrl: 'https://gimosatrade.onrender.com/api'
+  production: false,
+  apiUrl: 'http://localhost:8080/api',  // Local API URL for development
 };
