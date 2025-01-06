@@ -1,0 +1,121 @@
+<section id="create" class="py-5">
+  <div class="container">
+    <div class="card p-4 shadow">
+      <h2 class="text-dark mb-4">Shto Klient të Ri</h2>
+      <form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="row g-3">
+        <!-- Emri -->
+        <div class="col-md-6">
+          <label for="name" class="form-label">Emri i Klientit</label>
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            class="form-control"
+            placeholder="Emri i klientit"
+          />
+          <div *ngIf="clientForm.get('name')?.invalid && clientForm.get('name')?.touched" class="text-danger">
+            Emri është i detyrueshëm.
+          </div>
+        </div>
+
+        <!-- Adresa -->
+        <div class="col-md-6">
+          <label for="address" class="form-label">Adresa</label>
+          <input
+            type="text"
+            id="address"
+            formControlName="address"
+            class="form-control"
+            placeholder="Adresa e klientit"
+          />
+          <div *ngIf="clientForm.get('address')?.invalid && clientForm.get('address')?.touched" class="text-danger">
+            Adresa është e detyrueshme.
+          </div>
+        </div>
+
+        <!-- OIB -->
+        <div class="col-md-6">
+          <label for="oib" class="form-label">OIB</label>
+          <input
+            type="text"
+            id="oib"
+            formControlName="oib"
+            class="form-control"
+            placeholder="OIB"
+          />
+          <div *ngIf="clientForm.get('oib')?.invalid && clientForm.get('oib')?.touched" class="text-danger">
+            OIB duhet të ketë 11 karaktere.
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-6">
+          <label for="email" class="form-label">Emaili</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="Emaili i klientit"
+          />
+          <div *ngIf="clientForm.get('email')?.invalid && clientForm.get('email')?.touched" class="text-danger">
+            Vendosni një email të vlefshëm.
+          </div>
+        </div>
+
+        <!-- Kontakti -->
+        <div class="col-md-6">
+          <label for="phone" class="form-label">Kontakti</label>
+          <input
+            type="tel"
+            id="phone"
+            formControlName="phone"
+            class="form-control"
+            placeholder="Numri i telefonit"
+          />
+          <div *ngIf="clientForm.get('phone')?.invalid && clientForm.get('phone')?.touched" class="text-danger">
+            Kontakti duhet të jetë numër.
+          </div>
+        </div>
+
+        <!-- Data -->
+        <div class="col-md-6">
+          <label for="date" class="form-label">Data</label>
+          <input type="date" id="date" formControlName="date" class="form-control" />
+          <div *ngIf="clientForm.get('date')?.invalid && clientForm.get('date')?.touched" class="text-danger">
+            Data është e detyrueshme.
+          </div>
+        </div>
+
+        <!-- Numri i Paletave -->
+        <div class="col-md-6">
+          <label for="pallets" class="form-label">Numri i Paletave</label>
+          <input
+            type="number"
+            id="pallets"
+            formControlName="pallets"
+            class="form-control"
+            placeholder="Numri i paletave"
+          />
+        </div>
+
+        <!-- Numri i Pakove -->
+        <div class="col-md-6">
+          <label for="packages" class="form-label">Numri i Pakove</label>
+          <input
+            type="number"
+            id="packages"
+            formControlName="packages"
+            class="form-control"
+            placeholder="Numri i pakove"
+          />
+        </div>
+
+        <!-- Butoni -->
+        <div class="col-12 text-end">
+          <button type="submit" class="btn btn-success" [disabled]="clientForm.invalid">Shto Klient</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

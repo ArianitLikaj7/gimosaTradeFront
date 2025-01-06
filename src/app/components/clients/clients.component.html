@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="card p-4 shadow">
+    <h2 class="text-dark mb-4">Lista e Klientëve</h2>
+
+    <div class="text-end mb-3">
+      <button class="btn btn-primary" (click)="toggleClients()">
+        {{ showClientList ? 'Fshih Klientët' : 'Shfaq Klientët' }}
+      </button>
+    </div>
+
+    <!-- Fusha e kërkimit -->
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Kërko për klient..."
+        [(ngModel)]="searchTerm"
+        (input)="searchClients()"
+      />
+    </div>
+
+    <table class="table table-bordered table-hover" *ngIf="showClientList && filteredClients.length > 0">
+      <thead class="table-dark">
+      <tr>
+        <th>Emri</th>
+        <th>Adresa</th>
+        <th>OIB</th>
+        <th>Email</th>
+        <th>Telefon</th>
+        <th>Date</th>
+        <th>Numri i Paletave</th>
+        <th>Numri i Pakove</th>
+        <th>Veprime</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let client of filteredClients">
+        <td>{{ client.name }}</td>
+        <td>{{ client.address }}</td>
+        <td>{{ client.oib }}</td>
+        <td>{{ client.email }}</td>
+        <td>{{ client.phone }}</td>
+        <td>{{ client.date }}</td>
+        <td>{{ client.pallets }}</td>
+        <td>{{ client.packages }}</td>
+        <td>
+          <button class="btn btn-sm btn-danger" (click)="deleteClient(client.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <!-- Modal për Editimin e Klientit (i fshirë nëse nuk është më i nevojshëm) -->
+  </div>
+</div>
